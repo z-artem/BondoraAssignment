@@ -1,0 +1,44 @@
+﻿@model List<EquipmentItemViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="SendOrder" method="post">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Quantity
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <tr>
+                    <td class="hide">
+                        <input type="hidden" asp-for="@Model[i].ItemId" />
+                    </td>
+                    <td>
+                        @Model[i].Name
+                    </td>
+                    <td>
+                        @Model[i].Type
+                    </td>
+                    <td>
+                        <input type="number" min="0" asp-for="@Model[i].Quantity" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" />
+</form>
