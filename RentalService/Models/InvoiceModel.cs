@@ -27,6 +27,7 @@ namespace RentalService.Models
                         points += 2;
                         break;
                     case EquipmentType.Regular:
+                    case EquipmentType.Specialized:
                         points++;
                         break;
                 }
